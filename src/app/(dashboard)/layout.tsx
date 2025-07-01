@@ -3,11 +3,7 @@ const DashboardLayout = ({
 }: Readonly<{
 	children: React.ReactNode
 }>) => {
-	return (
-		<div className='flex justify-center items-center min-h-screen w-full'>
-			{children}
-		</div>
-	)
+	return <div className=''>{children}</div>
 }
 
 export default DashboardLayout
