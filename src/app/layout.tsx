@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
 	title: 'CurioCity',
-	description: '',
+	description:
+		'CurioCity: Your AI language companion. Powered by OpenAI, it enhances your conversations, content creation, and more!',
 }
 
 export default function RootLayout({
