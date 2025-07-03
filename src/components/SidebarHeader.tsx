@@ -6,7 +6,7 @@ const SidebarHeader = () => {
 	return (
 		<div className='flex items-center mb-4 gap-4 px-4'>
 			<MdOutlineTravelExplore className='w-12 h-12 text-primary' />
-			<h2 className='text-xl font-bold text-primary'>CurioCity</h2>
+			<h2 className='text-xl font-bold text-primary mr-auto'>CurioCity</h2>
 			<ThemeToggle />
 		</div>
 	)
