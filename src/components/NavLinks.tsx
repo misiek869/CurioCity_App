@@ -14,7 +14,7 @@ const links: Link[] = [
 
 const NavLinks = () => {
 	return (
-		<ul className='menu text-slate-50'>
+		<ul className='menu text-base-content'>
 			{links.map((link, index) => {
 				return (
 					<li key={index}>

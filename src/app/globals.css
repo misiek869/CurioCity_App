@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 @plugin "daisyui";
+@plugin "daisyui" {
+	themes: lofi --default, forest --prefersdark;
+}
 
 :root {
 	--background: #ffffff;
