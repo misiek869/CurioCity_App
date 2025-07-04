@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 const Chat = () => {
 	const [text, setText] = useState<string>('')
-	const [messages, setMessages] = useState<string>([])
+	const [messages, setMessages] = useState<string[]>([])
 
 	const handleSubmit = e => {
 		e.preventDefault()
