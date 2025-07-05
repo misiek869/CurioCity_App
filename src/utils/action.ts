@@ -7,21 +7,26 @@ const openai = new OpenAI({
 })
 
 export const generateChatResponse = async (
-	chatMsg: string
-): Promise<string> => {
-	const response = await openai.chat.completions.create({
-		messages: [
-			{
-				role: 'system',
-				content: 'you are a helpful assistant',
-			},
-			{ role: 'user', content: chatMsg },
-		],
-		model: 'gpt-4.1-mini',
-		temperature: 0,
-	})
-
-	console.log(response.choices[0].message)
-	console.log(response)
-	return 'awesome'
+	chatMessages: Array<{
+		role: 'system' | 'user' | 'assistant'
+		content: string
+	}>
+): Promise<string | null> => {
+	try {
+		const response = await openai.chat.completions.create({
+			messages: [
+				{
+					role: 'system',
+					content: 'you are a helpful assistant',
+				},
+				...chatMessages,
+			],
+			model: 'gpt-4.1-mini',
+			temperature: 0,
+		})
+		return response.choices[0].message.content
+	} catch (error) {
+		console.error('Error generating chat response:', error)
+		return null
+	}
 }
