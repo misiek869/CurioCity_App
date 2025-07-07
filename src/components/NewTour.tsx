@@ -1,7 +1,15 @@
 'use client'
 
-const handleSubmit = (e: React.FormEvent) => {
+import TourInfo from './TourInfo'
+
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 	e.preventDefault()
+
+	const formData = new FormData(e.currentTarget)
+
+	const destination = Object.fromEntries(formData.entries())
+
+	console.log(destination)
 }
 
 const NewTour = () => {
@@ -29,7 +37,9 @@ const NewTour = () => {
 					</button>
 				</div>
 			</form>
-			<div className='mt-16'></div>
+			<div className='mt-16'>
+				<TourInfo />
+			</div>
 		</>
 	)
 }
