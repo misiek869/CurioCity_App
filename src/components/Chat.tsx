@@ -11,7 +11,7 @@ const Chat = () => {
 	const [text, setText] = useState('')
 	const [messages, setMessages] = useState<ChatMessage[]>([])
 
-	const { mutate } = useMutation({
+	const { mutate, isPending } = useMutation({
 		mutationFn: async (message: string) => {
 			const newMessages: ChatMessage[] = [
 				...messages,
@@ -67,8 +67,9 @@ const Chat = () => {
 					/>
 					<button
 						className='btn btn-success join-item capitalize'
-						type='submit'>
-						ask your question
+						type='submit'
+						disabled={isPending}>
+						{isPending ? 'please wait' : 'ask your question'}
 					</button>
 				</div>
 			</form>
