@@ -2,6 +2,7 @@
 
 import { generateChatResponse } from '@/utils/action'
 import { useMutation } from '@tanstack/react-query'
+import { Span } from 'next/dist/trace'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -42,8 +43,21 @@ const Chat = () => {
 	return (
 		<div className='min-h-[calc(100vh-6rem)] grid grid-rows-[1fr,auto]'>
 			<div>
-				<h2 className='text-5xl'>Messages</h2>
-				<div className='mt-4'>
+				{messages.map(({ role, content }, index) => {
+					const avatar = role === 'user' ? '👤' : '🤖'
+					const bgColor = role === 'user' ? 'bg-base-200' : 'bg-base-100'
+					return (
+						<div
+							className={`${bgColor} flex py-6 -mx-8 px-8 text-xl leading-loose border-b border-base-300`}
+							key={index}>
+							<span className='mr-4'>{avatar}</span>
+							<p className='max-w-3xl'>{content}</p>
+						</div>
+					)
+				})}
+				{isPending ? <span className='loading'></span> : null}
+
+				{/* <div className='mt-4'>
 					{messages.map((msg, i) => (
 						<div
 							key={i}
@@ -53,7 +67,7 @@ const Chat = () => {
 							<strong>{msg.role}:</strong> {msg.content}
 						</div>
 					))}
-				</div>
+				</div> */}
 			</div>
 			<form onSubmit={handleSubmit} className='max-w-4xl pt-12'>
 				<div className='w-full join'>
