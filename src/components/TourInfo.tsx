@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TourInfo = () => {
+const TourInfo = ({ tour }) => {
 	return <div>info</div>
 }
 
