@@ -30,3 +30,13 @@ export const generateChatResponse = async (
 		return null
 	}
 }
+
+export const getActualTour = ({ city, country }) => {
+	return null
+}
+export const createTourResponse = ({ city, country }) => {
+	return null
+}
+export const createNewTour = ({ city, country }) => {
+	return null
+}
