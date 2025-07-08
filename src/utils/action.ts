@@ -31,12 +31,12 @@ export const generateChatResponse = async (
 	}
 }
 
-export const getActualTour = ({ city, country }) => {
+export const getActualTour = async ({ city, country }) => {
 	return null
 }
-export const createTourResponse = ({ city, country }) => {
+export const createTourResponse = async ({ city, country }) => {
 	return null
 }
-export const createNewTour = ({ city, country }) => {
+export const createNewTour = async ({ city, country }) => {
 	return null
 }
