@@ -78,8 +78,13 @@ export const createNewTour = async ({ city, country }) => {
 	return null
 }
 
-export const getAllTours = async => {
-	if (!searchTerm) {
-		const tours = await
-	}
+export const getExistingTour = async ({ city, country }) => {
+	return prisma.tour.findUnique({
+		where: {
+			city_country: {
+				city,
+				country,
+			},
+		},
+	})
 }
