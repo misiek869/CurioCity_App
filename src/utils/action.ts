@@ -74,9 +74,6 @@ If you can't find info on exact ${city}, or ${city} does not exist, or it's popu
 		return null
 	}
 }
-export const createNewTour = async ({ city, country }) => {
-	return null
-}
 
 export const getExistingTour = async ({ city, country }) => {
 	return prisma.tour.findUnique({
@@ -87,4 +84,8 @@ export const getExistingTour = async ({ city, country }) => {
 			},
 		},
 	})
+}
+
+export const createNewTour = async ({ tour }) => {
+	return prisma.tour.create({ data: tour })
 }
