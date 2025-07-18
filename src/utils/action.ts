@@ -1,6 +1,9 @@
 'use server'
 
+import { Prisma } from '@prisma/client'
 import OpenAI from 'openai'
+
+const prisma = Prisma()
 
 const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
@@ -73,4 +76,10 @@ If you can't find info on exact ${city}, or ${city} does not exist, or it's popu
 }
 export const createNewTour = async ({ city, country }) => {
 	return null
+}
+
+export const getAllTours = async => {
+	if (!searchTerm) {
+		const tours = await
+	}
 }
