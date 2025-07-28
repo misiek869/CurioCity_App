@@ -91,6 +91,5 @@ export const getExistingTour = async ({
 }
 
 export const createNewTour = async ({ tour }) => {
-	console.log(tour)
 	return prisma.tour.create({ data: tour })
 }

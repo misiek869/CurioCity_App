@@ -22,7 +22,7 @@ const NewTour = () => {
 			if (existingTour) return existingTour
 			const newTour = await createTourResponse(destination)
 			if (newTour) {
-				await createNewTour(newTour)
+				await createNewTour({ tour: newTour })
 				queryClient.invalidateQueries({ queryKey: ['tours'] })
 				return newTour
 			}
