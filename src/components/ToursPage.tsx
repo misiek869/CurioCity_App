@@ -13,7 +13,6 @@ const ToursPage = () => {
 		queryFn: () => getAllTours(searchTerm),
 	})
 
-	console.log(data)
 	return (
 		<>
 			<form className='max-w-lg mb-12 '>

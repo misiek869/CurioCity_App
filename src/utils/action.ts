@@ -110,9 +110,13 @@ export const getAllTours = async (searchTerm?: string) => {
 				{
 					city: {
 						contains: searchTerm,
+						mode: 'insensitive',
 					},
+				},
+				{
 					country: {
 						contains: searchTerm,
+						mode: 'insensitive',
 					},
 				},
 			],
