@@ -75,7 +75,13 @@ If you can't find info on exact ${city}, or ${city} does not exist, or it's popu
 	}
 }
 
-export const getExistingTour = async ({ city, country }) => {
+export const getExistingTour = async ({
+	city,
+	country,
+}: {
+	city: string
+	country: string
+}) => {
 	return prisma.tour.findUnique({
 		where: {
 			city_country: {
