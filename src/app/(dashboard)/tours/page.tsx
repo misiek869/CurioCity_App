@@ -4,13 +4,14 @@ import {
 	HydrationBoundary,
 	QueryClient,
 } from '@tanstack/react-query'
+import { getAllTours } from '@/utils/action'
 
 const AllToursPage = async () => {
 	const queryClient = new QueryClient()
 
 	await queryClient.prefetchQuery({
 		queryKey: ['tours'],
-		// queryFn: ()=>getAllTours()
+		queryFn: () => getAllTours(),
 	})
 
 	return (
