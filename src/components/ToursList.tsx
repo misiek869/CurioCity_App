@@ -1,7 +1,12 @@
 import React from 'react'
 import TourCard from './TourCard'
+import type { Tour } from '../../types'
 
-const ToursList = ({ data }: { data: any }) => {
+type ToursListProps = {
+	data: Tour[]
+}
+
+const ToursList = ({ data }: ToursListProps) => {
 	if (data.length === 0)
 		return <h4 className='text-xl'>Cant find any tours...</h4>
 	return (
