@@ -1,9 +1,9 @@
 'use server'
 
-import { Prisma } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 import OpenAI from 'openai'
 
-const prisma = Prisma()
+const prisma = new PrismaClient()
 
 const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
