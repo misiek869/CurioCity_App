@@ -3,6 +3,8 @@
 import { prisma } from '@/db'
 import OpenAI from 'openai'
 
+import type { Tour } from './types'
+
 const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
 })
@@ -128,10 +130,19 @@ export const getAllTours = async (searchTerm?: string) => {
 	return tours
 }
 
-export const getSingleTour = async (id: string) => {
-	return prisma.tour.findUnique({
+export const getSingleTour = async (id: string): Promise<Tour | null> => {
+	const tour = await prisma.tour.findUnique({
 		where: {
 			id,
 		},
 	})
+
+	if (!tour) return null
+
+	return {
+		...tour,
+		stops: Array.isArray(tour.stops)
+			? tour.stops.filter((stop): stop is string => typeof stop === 'string')
+			: [],
+	}
 }
