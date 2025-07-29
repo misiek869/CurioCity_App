@@ -6,6 +6,7 @@ import React from 'react'
 
 const SingleTourPage = async ({ params }: { params: string }) => {
 	const tour = await getSingleTour(params.id)
+
 	if (!tour) {
 		redirect('/tours')
 	}

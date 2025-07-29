@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { Tour } from '../../types'
+import type { Tour } from '../utils/types'
 
 const TourCard = ({ tour }: { tour: Tour }) => {
 	const { city, id, country } = tour

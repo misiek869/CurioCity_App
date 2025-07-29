@@ -1,6 +1,6 @@
 import React from 'react'
 import TourCard from './TourCard'
-import type { Tour } from '../../types'
+import type { Tour } from '../utils/types'
 
 type ToursListProps = {
 	data: Tour[]

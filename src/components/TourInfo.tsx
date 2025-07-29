@@ -1,12 +1,10 @@
-type TourProps = {
-	city: string
-	country: string
-	title: string
-	description: string
-	stops: string[]
+import type { Tour } from '../utils/types'
+
+type TourInfoProps = {
+	tour: Tour
 }
 
-const TourInfo = ({ tour }: TourProps) => {
+const TourInfo = ({ tour }: TourInfoProps) => {
 	const { title, description, stops } = tour
 	return (
 		<div className='max-w-2xl'>
