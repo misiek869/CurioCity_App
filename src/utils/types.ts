@@ -7,5 +7,5 @@ export type Tour = {
 	title: string
 	description: string
 	image?: string | null
-	stops: unknown
+	stops: string[]
 }
