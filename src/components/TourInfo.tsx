@@ -1,4 +1,4 @@
-import type { Tour } from '../utils/types'
+import type { Tour } from '@/utils/types'
 
 type TourInfoProps = {
 	tour: Tour
