@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import React from 'react'
 
-const SingleTourPage = async ({ params }: { params: string }) => {
+const SingleTourPage = async ({ params }: { params: { id: string } }) => {
 	const tour = await getSingleTour(params.id)
 
 	if (!tour) {
