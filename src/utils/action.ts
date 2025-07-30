@@ -35,10 +35,23 @@ export const generateChatResponse = async (
 	}
 }
 
-export const getActualTour = async ({ city, country }) => {
+export const getActualTour = async ({
+	city,
+	country,
+}: {
+	city: string
+	country: string
+}) => {
 	return null
 }
-export const createTourResponse = async ({ city, country }) => {
+
+export const createTourResponse = async ({
+	city,
+	country,
+}: {
+	city: string
+	country: string
+}) => {
 	const query = `Find a ${city} in this ${country}.
 If ${city} in this ${country} exists, create a list of things families can do in this ${city},${country}. 
 Once you have a list, create a one-day tour. Response should be in the following JSON format: 
