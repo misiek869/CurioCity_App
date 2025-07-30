@@ -2,8 +2,10 @@
 
 import { prisma } from '@/db'
 import OpenAI from 'openai'
+import { Token } from '@prisma/client'
 
 import type { Tour } from './types'
+import { revalidatePath } from 'next/cache'
 
 const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
@@ -183,4 +185,45 @@ export const generateTourImage = async ({
 		console.error('Error generating image:', error)
 		return null
 	}
+}
+
+export const getUserTokensById = async (clerkId: string) => {
+	const result = await prisma.token.findUnique({
+		where: {
+			clerkId,
+		},
+	})
+	return result?.tokens
+}
+
+export const generateUserTokensForId = async (clerkId: string) => {
+	const result = await prisma.token.create({
+		data: {
+			clerkId,
+		},
+	})
+	return result?.tokens
+}
+
+// export const fetchOrGenerateTokens = async (clerkId: string) => {
+// 	const result = await getUserTokensById(clerkId)
+// 	if (result) {
+// 		return result.tokens
+// 	}
+// 	const generated = await generateUserTokensForId(clerkId)
+// 	return generated.tokens
+// }
+
+export const subtractTokens = async (clerkId: string, tokens: number) => {
+	const result = await prisma.token.update({
+		where: {
+			clerkId,
+		},
+		data: {
+			tokens: { decrement: tokens },
+		},
+	})
+
+	revalidatePath('/profile')
+	return result.tokens
 }
