@@ -26,6 +26,7 @@ export const generateChatResponse = async (
 			],
 			model: 'gpt-4.1-mini',
 			temperature: 0,
+			max_completion_tokens: 1000,
 		})
 		return response.choices[0].message.content
 	} catch (error) {
